@@ -92,8 +92,20 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
     #4050
+    path = None
     frontier = StackFrontier()
-    # print(frontier.frontier)
+    print(frontier.frontier)
+    current_node = Node(source, None, None)
+
+    neighbors = neighbors_for_person(source)
+
+    while True:
+        for nbr in neighbors:
+            if nbr[1] == target:
+                return path
+    
+            new_node = Node(nbr[1], current_node, None)
+            frontier.add(new_node)
 
     print(neighbors_for_person(source))
 
