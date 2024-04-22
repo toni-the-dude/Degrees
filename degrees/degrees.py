@@ -91,9 +91,13 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    #4050
+    frontier = StackFrontier()
+    # print(frontier.frontier)
 
-    # TODO
-    raise NotImplementedError
+    print(neighbors_for_person(source))
+
+    return None
 
 
 def person_id_for_name(name):
