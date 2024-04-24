@@ -95,11 +95,12 @@ def shortest_path(source, target):
     path = None
     frontier = StackFrontier()
     print(frontier.frontier)
-    current_node = Node(source, None, None)
+    current_node = Node(source, None, None) # Stored the id of the actor within "state"
+    frontier.add(current_node)
 
-    neighbors = neighbors_for_person(source)
 
-    while True:
+    for node in frontier:
+        neighbors = neighbors_for_person(node.state)
         for nbr in neighbors:
             if nbr[1] == target:
                 return path
