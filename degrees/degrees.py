@@ -92,15 +92,21 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
     #4050
-    path = None
+    print(source)
     frontier = StackFrontier()
-    print(frontier.frontier)
+    # print(frontier.frontier)
     current_node = Node(source, None, None) # Stored the id of the actor within "state"
     frontier.add(current_node)
+    path = None # To be returned
 
+    while len(frontier.frontier) != 0:
 
-    for node in frontier:
-        neighbors = neighbors_for_person(node.state)
+        current_node = frontier.frontier.pop(0)
+        neighbors = neighbors_for_person(current_node.state) # (movie_id, person_id) pairs
+        print(neighbors)
+        input()
+        print("Frontier:", frontier.frontier)
+
         for nbr in neighbors:
             if nbr[1] == target:
                 return path
@@ -108,7 +114,7 @@ def shortest_path(source, target):
             new_node = Node(nbr[1], current_node, None)
             frontier.add(new_node)
 
-    print(neighbors_for_person(source))
+    # print(neighbors_for_person(source))
 
     return None
 
