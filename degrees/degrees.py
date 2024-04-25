@@ -97,7 +97,7 @@ def shortest_path(source, target):
     # print(frontier.frontier)
     current_node = Node(source, None, None) # Stored the id of the actor within "state"
     frontier.add(current_node)
-    path = None # To be returned
+    path = [] # To be returned
 
     while len(frontier.frontier) != 0:
 
@@ -109,6 +109,13 @@ def shortest_path(source, target):
 
         for nbr in neighbors:
             if nbr[1] == target:
+
+                parent = current_node
+
+                while parent != None:
+                    path.append(parent)
+                    parent = parent.parent
+
                 return path
     
             new_node = Node(nbr[1], current_node, None)
